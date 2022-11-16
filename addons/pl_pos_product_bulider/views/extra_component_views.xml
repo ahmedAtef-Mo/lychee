@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="view_extra_component_form">
+            <field name="model">extra.component</field>
+            <field name="arch" type="xml">
+                <form string="Extra Component">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="max_qty"/>
+                            <field name="min_qty"/>
+                        </group>
+                        <group>
+                            <field name="product_ids" widget="many2many_tags"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="view_extra_component_list" model="ir.ui.view">
+            <field name="model">extra.component</field>
+            <field name="arch" type="xml">
+                <tree string="Extra Component">
+                    <field name="name"/>
+                    <field name="max_qty"/>
+                    <field name="min_qty"/>
+                </tree>
+            </field>
+        </record>
+        <record id="action_extra_component" model="ir.actions.act_window">
+            <field name="name">Extra Component</field>
+            <field name="view_mode">tree,form</field>
+            <field name="res_model">extra.component</field>
+            <field name="view_id" ref="view_extra_component_list"/>
+        </record>
+        <menuitem action="action_extra_component" id="extra_component_menu" parent="mrp.menu_mrp_bom"
+                  sequence="14"
+                  groups="base.group_user"/>
+    </data>
+</odoo>
