@@ -113,3 +113,6 @@
         height: 60px !important;
     }
 }
+table.pak_prod_table td {
+    padding: 30px !important;
+}

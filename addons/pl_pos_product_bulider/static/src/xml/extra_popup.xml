@@ -8,59 +8,93 @@
                     Choose the package
                 </header>
                 <main class="main-body touch-scrollable scrollable-y product_content">
-                    <div class="extra_popup">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-4 border-top border-bottom">
-                                <div class="row main align-items-center">
-                                    <div class="col-2"><img class="img-fluid" src="https://i.imgur.com/1GrakTl.jpg"/></div>
-                                    <div class="col">
-                                        <div class="row text-muted">Shirt</div>
-                                        <div class="row">Cotton T-shirt</div>
-                                    </div>
-                                    <div class="col">
-                                        <a href="#">-</a>
-                                        <a href="#" class="border">1</a>
-                                        <a href="#">+</a>
-                                    </div>
-                                    <div class="col"> 44.00
-                                        <span class="close">&#10005;</span></div>
-                                </div>
-                            </div>
-                                <div class="col-4">
-                                    <div class="row main align-items-center">
-                                        <div class="col-2"><img class="img-fluid" src="https://i.imgur.com/ba3tvGm.jpg" /></div>
-                                        <div class="col">
-                                            <div class="row text-muted">Shirt</div>
-                                            <div class="row">Cotton T-shirt</div>
-                                        </div>
-                                        <div class="col">
-                                            <a href="#">-</a>
-                                            <a href="#" class="border">1</a>
-                                            <a href="#">+</a>
-                                        </div>
-                                        <div class="col"> 44.00
-                                            <span class="close">&#10005;</span></div>
-                                    </div>
-                                </div>
-                                <div class="col-4 border-top border-bottom">
-                                <div class="row main align-items-center">
-                                    <div class="col-2"><img class="img-fluid" src="https://i.imgur.com/pHQ3xT3.jpg" /></div>
-                                    <div class="col">
-                                        <div class="row text-muted">Shirt</div>
-                                        <div class="row">Cotton T-shirt</div>
-                                    </div>
-                                    <div class="col">
-                                        <a href="#">-</a>
-                                        <a href="#" class="border">1</a>
-                                        <a href="#">+</a>
-                                    </div>
-                                    <div class="col"> 44.00
-                                        <span class="close">&#10005;</span></div>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
+<!--                    <div class="extra_popup">-->
+                    <!--                        <div class="container">-->
+                    <!--                            <div class="row">-->
+                    <!--                                <div class="col-4 border-top border-bottom">-->
+                    <!--                                <div class="row main align-items-center">-->
+                    <!--                                    <div class="col-2"><img class="img-fluid" src="https://i.imgur.com/1GrakTl.jpg"/></div>-->
+                    <!--                                    <div class="col">-->
+                    <!--                                        <div class="row text-muted">Shirt</div>-->
+                    <!--                                        <div class="row">Cotton T-shirt</div>-->
+                    <!--                                    </div>-->
+                    <!--                                    <div class="col">-->
+                    <!--                                        <a href="#">-</a>-->
+                    <!--                                        <a href="#" class="border">1</a>-->
+                    <!--                                        <a href="#">+</a>-->
+                    <!--                                    </div>-->
+                    <!--                                    <div class="col"> 44.00-->
+                    <!--                                        <span class="close">&#10005;</span></div>-->
+                    <!--                                </div>-->
+                    <!--                            </div>-->
+                    <!--                                <div class="col-4">-->
+                    <!--                                    <div class="row main align-items-center">-->
+                    <!--                                        <div class="col-2"><img class="img-fluid" src="https://i.imgur.com/ba3tvGm.jpg" /></div>-->
+                    <!--                                        <div class="col">-->
+                    <!--                                            <div class="row text-muted">Shirt</div>-->
+                    <!--                                            <div class="row">Cotton T-shirt</div>-->
+                    <!--                                        </div>-->
+                    <!--                                        <div class="col">-->
+                    <!--                                            <a href="#">-</a>-->
+                    <!--                                            <a href="#" class="border">1</a>-->
+                    <!--                                            <a href="#">+</a>-->
+                    <!--                                        </div>-->
+                    <!--                                        <div class="col"> 44.00-->
+                    <!--                                            <span class="close">&#10005;</span></div>-->
+                    <!--                                    </div>-->
+                    <!--                                </div>-->
+                    <!--                                <div class="col-4 border-top border-bottom">-->
+                    <!--                                <div class="row main align-items-center">-->
+                    <!--                                    <div class="col-2"><img class="img-fluid" src="https://i.imgur.com/pHQ3xT3.jpg" /></div>-->
+                    <!--                                    <div class="col">-->
+                    <!--                                        <div class="row text-muted">Shirt</div>-->
+                    <!--                                        <div class="row">Cotton T-shirt</div>-->
+                    <!--                                    </div>-->
+                    <!--                                    <div class="col">-->
+                    <!--                                        <a href="#">-</a>-->
+                    <!--                                        <a href="#" class="border">1</a>-->
+                    <!--                                        <a href="#">+</a>-->
+                    <!--                                    </div>-->
+                    <!--                                    <div class="col"> 44.00-->
+                    <!--                                        <span class="close">&#10005;</span></div>-->
+                    <!--                                </div>-->
+                    <!--                            </div>-->
+                    <!--                            </div>-->
+                    <!--                        </div>-->
+                    <!--                    </div>-->
+                    <div class="package tabs">
+                        <t t-foreach="getPackages" t-as="package">
+                            <t t-esc="package.name"/>
+                            <table width="100%" class="pak_prod_table">
+                                <t t-foreach="package.products" t-as="product">
+                                    <tr
+                                    t-att-data-pack-id="product.id"
+                                    t-att-data-prod-id="package.id"
+                                    >
+                                        <td width="10%"><img style="max-width:200px;" class="img-fluid" t-att-src="get_image_url(product.id)" /></td>
+                                        <td width="30%">
+                                            <div class="text-left">
+                                                 <div class="row text-muted"><t t-esc="product.name"/></div>
+                                                <div class="row"><t t-raw="product.description" t-if="product.description"/></div>
+                                            </div>
+                                        </td>
+                                        <td width="40%" class="text-left">
+                                             <div class="col">
+                                                 <a href="#"
+                                                    style="font-size: 35px;"
+                                                    class="min_amount_btn"
+                                                    t-on-click="min_amount"
+                                                 >-
+                                                 </a>
+                                                 <input style="width:60px;" type="number" min="0" t-att-max="package.max_qty" value="0" t-on-change="onchange_product_qty"  class="amount_input">1</input>
+                                                 <a href="#"  style="font-size: 35px;" class="max_amount_btn" t-on-click="max_amount">+</a>
+                                            </div>
+                                            <div class="col">price : <t t-esc="product.price"/></div>
+                                        </td>
+                                    </tr>
+                                </t>
+                            </table>
+                        </t>
                     </div>
                 </main>
                 <footer class="footer sh_warning_footer">
@@ -79,5 +113,4 @@
             </div>
         </div>
     </t>
-
 </templates>
