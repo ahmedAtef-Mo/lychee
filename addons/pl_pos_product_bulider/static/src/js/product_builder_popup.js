@@ -17,7 +17,6 @@ odoo.define('pl_pos_product_bulider.product_builder_popup', function (require) {
                    let result = await super._clickProduct(event);
                    Gui.showPopup("QuantityWarningPopup", {
                         product: product,
-                        product_image: this.get_image_url(product.id),
                    })
 
                 }

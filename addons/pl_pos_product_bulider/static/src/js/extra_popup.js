@@ -1,6 +1,9 @@
 odoo.define("pl_pos_product_bulider.ProductQtyPopup", function (require) {
     "use strict";
 
+    var core = require('web.core');
+
+    var QWeb = core.qweb;
     const { useState, useSubEnv } = owl.hooks;
     const PosComponent = require("point_of_sale.PosComponent");
     const AbstractAwaitablePopup = require("point_of_sale.AbstractAwaitablePopup");
@@ -21,10 +24,31 @@ odoo.define("pl_pos_product_bulider.ProductQtyPopup", function (require) {
         },
     });
     class QuantityWarningPopup extends AbstractAwaitablePopup {
+
+        get_image_url(product_id) {
+            return window.location.origin + "/web/image?model=product.product&field=image_1920&id=" + product_id;
+        }
         constructor() {
             var parameter = super(...arguments);
             this.product = parameter.props.product;
+            this.packages = []
             useSubEnv({ attribute_components: [] });
+        }
+        mounted() {
+            super.mounted();
+            this.rpc({
+               model: 'product.product',
+                method: 'get_all_product_packages',
+                args: [[this.product.id]],
+            }).then((result)=>{
+                if (result.length > 0) {
+                    this.packages = result
+                    this.render()
+                }
+            })
+        }
+        get getPackages () {
+            return this.packages
         }
         cancel() {
             var self = this;
@@ -54,6 +78,34 @@ odoo.define("pl_pos_product_bulider.ProductQtyPopup", function (require) {
 //            selectedOrder.get_selected_orderline().set_quantity(1);
             this.trigger("close-popup");
         }
+        min_amount(event) {
+            var parent = $(event.currentTarget).closest('tr');
+            let input = parent.find('.amount_input')
+            let old_value = parseInt(input.val())
+            input.val(old_value - 1)
+            this.onchange_product_qty(event)
+        }
+        max_amount(event) {
+             var parent = $(event.currentTarget).closest('tr');
+             let input = parent.find('.amount_input')
+             let old_value = parseInt(input.val())
+             input.val(old_value + 1)
+             this.onchange_product_qty(event)
+        }
+        onchange_product_qty(event) {
+            var parent = $(event.currentTarget).closest('tr');
+            var package_id = parent.data('prod-id');
+            var product_id = parent.data('pack-id');
+            console.log(package_id, product_id)
+            let input = parent.find('.amount_input')
+            this.validate_new_qty(package_id, product_id, qty)
+        }
+        validate_new_qty(pak_id, prod_id, new_qty) {
+//            var package = this.packages.filter((pack) => pack.id == pak_id)
+//            var product = package.products.filter((product) => product.id == prod_id)
+//            console.log(product)
+        }
+
     }
     QuantityWarningPopup.template = "QuantityWarningPopup";
 
