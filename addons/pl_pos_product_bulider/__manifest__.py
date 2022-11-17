@@ -21,9 +21,14 @@
     'assets': {
         'point_of_sale.assets': [
             'pl_pos_product_bulider/static/src/js/models.js',
+            'pl_pos_product_bulider/static/src/css/pos.css',
+            'pl_pos_product_bulider/static/src/css/cart.css',
+            'pl_pos_product_bulider/static/src/js/product_builder_popup.js',
+            'pl_pos_product_bulider/static/src/js/extra_popup.js',
         ],
         'web.assets_qweb': [
             'pl_pos_product_bulider/static/src/xml/**/*',
+
         ],
     },
 }

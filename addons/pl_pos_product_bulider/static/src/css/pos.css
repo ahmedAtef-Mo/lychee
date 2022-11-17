@@ -1,0 +1,115 @@
+.main-body.touch-scrollable.scrollable-y.product_content {
+    padding: 19px;
+}
+.pos .modal-dialog .popup.sh_qty_popup {
+    max-width: 90%;
+}
+.pos .popup .footer.sh_warning_footer {
+    height: 30px;
+}
+/****
+*
+* Code By KAREEM & mohamed fouad & ramez...
+*
+ */
+.kareem-icon{
+    position: absolute;
+    bottom: 0px;
+    font-size: 20px;
+    right: 0px;
+    line-height: 13px;
+    border-radius: 2px;
+    z-index: 1000;
+    color: #7f82ac;
+    padding: 3px;
+}
+.sh_warehouse_display {
+    float: left;
+    right: 93px;
+    vertical-align: top;
+    color: white;
+    line-height: 13px;
+    background: #6ec89b;
+    padding: 2px 5px;
+    border-radius: 2px;
+    position: absolute;
+    width: 17px;
+}
+.data_td {
+    padding: 10px;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+.head_td {
+    border: 1px solid black;
+    background: lightgrey;
+    padding: 8px;
+}
+.footer_td {
+    border: 1px solid black;
+    padding: 10px;
+}
+.sh_product_image {
+    float: left;
+    width: 30%;
+    margin-top: -7px;
+}
+.product_image {
+    height: 91px;
+    width: 91px;
+}
+.sh_product_name {
+    float: right;
+    width: 70%;
+}
+.sh_max_qty {
+    font-weight: normal;
+    margin-top: 17px;
+}
+@media only screen and (max-width: 576px) {
+    .popup.popup-textinput.sh_qty_popup {
+        width: 355px !important;
+    }
+    .sh_max_qty {
+        height: 57px;
+        overflow: auto;
+        padding-right: 5px;
+    }
+    .popups .modal-dialog .product-configurator-popup {
+        top: 30% !important;
+        left: 47% !important;
+        max-width: 70% !important;
+        width: 70% !important;
+    }
+}
+.sh_qty_popup {
+    margin:100px;
+    height: fit-content;
+    max-height: 70%;
+    overflow: scroll;
+    font-size: 16px !important;
+}
+
+.leftpane .order .orderline.selected .product-image-icon {
+    margin-right: 5px;
+}
+/*.popups .modal-dialog .product-configurator-popup{max-width: 50% !important;width: 50% !important;}*/
+.popups .modal-dialog .product-configurator-popup header.title {
+    font-size: 18px !important;
+}
+.popups .modal-dialog .product-configurator-popup .wh_qty {
+    font-size: 15px !important;
+}
+.popups .modal-dialog .product-configurator-popup .wh_qty .data_td {
+    font-weight: normal !important;
+}
+
+@media only screen and (max-width: 576px) {
+    .sh_warning_footer .button.cancel {
+        margin-top: 6px !important;
+    }
+    .sh_product_image .product_image {
+        width: 60px !important;
+        height: 60px !important;
+    }
+}

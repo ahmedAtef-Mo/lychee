@@ -1,0 +1,115 @@
+
+.extra_popup .title{
+    margin-bottom: 5vh;
+}
+.extra_popup .summary{
+    background-color: #ddd;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    padding: 4vh;
+    color: rgb(65, 65, 65);
+}
+@media(max-width:767px){
+    .extra_popup .summary{
+        border-top-right-radius: unset;
+        border-bottom-left-radius: 1rem;
+    }
+}
+.extra_popup .summary .col-2{
+    padding: 0;
+}
+.extra_popup .summary .col-10
+{
+    padding: 0;
+}
+.extra_popup .row{
+    margin: 0;
+}
+.extra_popup .title b{
+    font-size: 1.5rem;
+}
+.extra_popup .main{
+    margin: 0;
+    padding: 2vh 0;
+    width: 100%;
+}
+.extra_popup .col-2, .extra_popup .col{
+    padding: 0 1vh;
+}
+.extra_popup a{
+    padding: 0 1vh;
+}
+.extra_popup .close{
+    margin-left: auto;
+    font-size: 0.7rem;
+}
+.extra_popup img{
+    width: 3.5rem;
+}
+.extra_popup .back-to-shop{
+    margin-top: 4.5rem;
+}
+.extra_popup h5{
+    margin-top: 4vh;
+}
+.extra_popup hr{
+    margin-top: 1.25rem;
+}
+.extra_popup form{
+    padding: 2vh 0;
+}
+.extra_popup select{
+    border: 1px solid rgba(0, 0, 0, 0.137);
+    padding: 1.5vh 1vh;
+    margin-bottom: 4vh;
+    outline: none;
+    width: 100%;
+    background-color: rgb(247, 247, 247);
+}
+.extra_popup input{
+    border: 1px solid rgba(0, 0, 0, 0.137);
+    padding: 1vh;
+    margin-bottom: 4vh;
+    outline: none;
+    width: 100%;
+    background-color: rgb(247, 247, 247);
+}
+.extra_popup input:focus::-webkit-input-placeholder
+{
+      color:transparent;
+}
+.extra_popup .btn{
+    background-color: #000;
+    border-color: #000;
+    color: white;
+    width: 100%;
+    font-size: 0.7rem;
+    margin-top: 4vh;
+    padding: 1vh;
+    border-radius: 0;
+}
+.extra_popup .btn:focus{
+    box-shadow: none;
+    outline: none;
+    box-shadow: none;
+    color: white;
+    -webkit-box-shadow: none;
+    -webkit-user-select: none;
+    transition: none;
+}
+.extra_popup .btn:hover{
+    color: white;
+}
+.extra_popup a{
+    color: black;
+}
+.extra_popup a:hover{
+    color: black;
+    text-decoration: none;
+}
+ .extra_popup #code{
+    background-image: linear-gradient(to left, rgba(255, 255, 255, 0.253) , rgba(255, 255, 255, 0.185)), url("https://img.icons8.com/small/16/000000/long-arrow-right.png");
+    background-repeat: no-repeat;
+    background-position-x: 95%;
+    background-position-y: center;
+}

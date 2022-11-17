@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="QuantityWarningPopup" owl="1">
+        <div role="dialog" class="modal-dialog">
+            <div class="popup popup-text popup-lg product-configurator-popup sh_qty_popup">
+                <header class="title">
+                    Choose the package
+                </header>
+                <main class="main-body touch-scrollable scrollable-y product_content">
+                    <div class="extra_popup">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-4 border-top border-bottom">
+                                <div class="row main align-items-center">
+                                    <div class="col-2"><img class="img-fluid" src="https://i.imgur.com/1GrakTl.jpg"/></div>
+                                    <div class="col">
+                                        <div class="row text-muted">Shirt</div>
+                                        <div class="row">Cotton T-shirt</div>
+                                    </div>
+                                    <div class="col">
+                                        <a href="#">-</a>
+                                        <a href="#" class="border">1</a>
+                                        <a href="#">+</a>
+                                    </div>
+                                    <div class="col"> 44.00
+                                        <span class="close">&#10005;</span></div>
+                                </div>
+                            </div>
+                                <div class="col-4">
+                                    <div class="row main align-items-center">
+                                        <div class="col-2"><img class="img-fluid" src="https://i.imgur.com/ba3tvGm.jpg" /></div>
+                                        <div class="col">
+                                            <div class="row text-muted">Shirt</div>
+                                            <div class="row">Cotton T-shirt</div>
+                                        </div>
+                                        <div class="col">
+                                            <a href="#">-</a>
+                                            <a href="#" class="border">1</a>
+                                            <a href="#">+</a>
+                                        </div>
+                                        <div class="col"> 44.00
+                                            <span class="close">&#10005;</span></div>
+                                    </div>
+                                </div>
+                                <div class="col-4 border-top border-bottom">
+                                <div class="row main align-items-center">
+                                    <div class="col-2"><img class="img-fluid" src="https://i.imgur.com/pHQ3xT3.jpg" /></div>
+                                    <div class="col">
+                                        <div class="row text-muted">Shirt</div>
+                                        <div class="row">Cotton T-shirt</div>
+                                    </div>
+                                    <div class="col">
+                                        <a href="#">-</a>
+                                        <a href="#" class="border">1</a>
+                                        <a href="#">+</a>
+                                    </div>
+                                    <div class="col"> 44.00
+                                        <span class="close">&#10005;</span></div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+                <footer class="footer sh_warning_footer">
+                    <div class="button cancel order"
+                         style="height: 23px; line-height: 22px; color: #fff; background: #6ec89b;"
+                         t-on-click="put_order">
+                        Order
+                    </div>
+                    <div class="button cancel" t-on-click="cancel">
+                        Cancel
+                    </div>
+                    <div class="button cancel" t-on-click="next">
+                        Next
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </t>
+
+</templates>

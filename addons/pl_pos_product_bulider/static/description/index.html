@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"></link>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
+</head>
+<body>
+
+<!-- heading  -->
+<section id="sh_module_heading" style="padding-top: 50px;">
+	<div class="container">
+		<div class="sh_center text-center">
+			<h4 style="font-size: 30px;font-weight: 600;color: #212121;margin-bottom: 20px;">POS Product Warehouse Quantity
+
+</h4>
+			<img src="shape.png" style="width: 100px;display: block;text-align: center;margin: auto;margin-bottom: 20px;" />
+			<p style="color: #777;font-size: 18px;margin: 0;letter-spacing: 1px;">Do you want to display warehouse or locations product stock in the POS? Your warehouse and warehouse locations play an important role in product sales. You have to make sure that the ordered goods are in stock. This module helps to display the available stock quantity of all products in the POS. Here you get the total product quantity and how much quantity available in each warehouse or location.
+
+</p><br/>
+
+			 <h2 align="center">
+            <a style="background-color: #1976d2; color: white; border-color: #1976d2; position: relative; overflow: hidden;padding: 1%;text-decoration: none;border-radius: 0px;display: inline-block;" class="btn btn-success btn-lg" href="https://youtu.be/8d8SFEnwqn4" target="_blank"><span class="o_ripple d-block position-absolute rounded-circle" style="height: 398px; width: 398px; top: -164px; left: -147.891px;"></span>How Point Of Sale Product Warehouse Quantity works?</a>
+         </h2>
+          <h2 align="center">
+            <a style="background-color: #1976d2; color: white; border-color: #1976d2; position: relative; overflow: hidden;padding: 1%;text-decoration: none;border-radius: 0px;display: inline-block;" class="btn btn-success btn-lg" href="https://youtu.be/Aiy1OgxZphs" target="_blank"><span class="o_ripple d-block position-absolute rounded-circle" style="height: 398px; width: 398px; top: -164px; left: -147.891px;"></span>Point Of Sale Product Warehouse Quantity - Advance</a>
+         </h2>
+		</div>
+	</div>
+</section>  
+
+
+
+
+
+<section class="sh_bg_cover" style="padding:1px 0em; margin-bottom: 2em;margin-top: 2em;padding: 40px;">
+  <div class="container">
+      <div class="sh_spaced">
+        <h2 class="sh_display" style="color:#1578b9;text-align: center;font-size: 2em;margin-top: 0px;">
+          <b style="font-weight: bold;font-family: " open="" sans="" sans-serif="">Related Modules</b>
+        </h2>
+        <hr style="border: 1px solid #96969a;position:relative;width:40px;top:0px;padding:0px;margin-bottom: 2em;">
+       
+            <p class="sh_mb32" align="center" style="color: green; font-family: sans-serif!important;padding-top: 10px;margin-bottom:0px !important;text-align: justify;padding: 7px 0px;border-bottom: 1px solid #bbbbbb;">
+            <i class="fa fa-hand-o-right"  style="margin-right: 1em;color: #1678b9;font-size: 1.4em;"></i>
+            <a href="https://apps.odoo.com/apps/modules/14.0/sh_pos_order_warehouse/"><b>Point Of Sale Order Warehouse</b></a>
+        </p>   
+        
+        <p class="sh_mb32" align="center" style="color: green; font-family: sans-serif!important;padding-top: 10px;margin-bottom:0px !important;text-align: justify;padding: 7px 0px;border-bottom: 1px solid #bbbbbb;">
+            <i class="fa fa-hand-o-right"  style="margin-right: 1em;color: #1678b9;font-size: 1.4em;"></i>
+             <a href="https://apps.odoo.com/apps/modules/14.0/sh_pos_multi_warehouse/"><b>POS Multi Warehouse</b></a>
+            
+            </p>     
+    </div>
+  </div>
+</section>
+
+
+
+<section id="sh_tab" style="padding-top: 50px;">
+	<div class="container">
+		<ul class="nav nav-tabs justify-content-center" role="tablist" style="justify-content: center;padding-bottom: 10px;border-bottom: 2px solid #aaa;">
+		    <li class="nav-item" style="background-color: rgba(25, 118, 210, 0.6);color: #fff;border-radius: 0;font-weight: 600;font-size: 14px;margin: 0 5px;">
+		        <a class="nav-link active" data-toggle="tab" href="#Feature" style="color: #333;border: 2px solid #1c76d2;">Features</a>
+		    </li>
+		    <li class="nav-item" style="background-color: rgba(25, 118, 210, 0.6);color: #fff;border-radius: 0;font-weight: 600;font-size: 14px;margin: 0 5px;">
+		        <a class="nav-link" data-toggle="tab" href="#Configurations1" style="color: #333;border: 2px solid #1c76d2;">Warehouse</a>
+		    </li>
+		    <li class="nav-item" style="background-color: rgba(25, 118, 210, 0.6);color: #fff;border-radius: 0;font-weight: 600;font-size: 14px;margin: 0 5px;">
+		        <a class="nav-link" data-toggle="tab" href="#Configurations" style="color: #333;border: 2px solid #1c76d2;">Location</a>
+		    </li>
+		    <li class="nav-item" style="background-color: rgba(25, 118, 210, 0.6);color: #fff;border-radius: 0;font-weight: 600;font-size: 14px;margin: 0 5px;">
+		        <a class="nav-link" data-toggle="tab" href="#Configurations11" style="color: #333;border: 2px solid #1c76d2;">Extra Features</a>
+		    </li>
+		    <li class="nav-item" style="background-color: rgba(25, 118, 210, 0.6);color: #fff;border-radius: 0;font-weight: 600;font-size: 14px;margin: 0 5px;">
+		        <a class="nav-link" data-toggle="tab" href="#Release" style="color: #333;border: 2px solid #1c76d2;">Releases</a>
+		    </li>
+		    <li class="nav-item" style="background-color: rgba(25, 118, 210, 0.6);color: #fff;border-radius: 0;font-weight: 600;font-size: 14px;margin: 0 5px;">
+		        <a class="nav-link" data-toggle="tab" href="#FAQ" style="color: #333;border: 2px solid #1c76d2;">FAQs</a>
+		    </li>
+		    <li class="nav-item" style="background-color: rgba(25, 118, 210, 0.6);color: #fff;border-radius: 0;font-weight: 600;font-size: 14px;margin: 0 5px;">
+		        <a class="nav-link" data-toggle="tab" href="#Support" style="color: #333;border: 2px solid #1c76d2;">Support</a>
+		    </li>
+		</ul>
+
+		<div class="tab-content" style="margin-top: 30px;">
+
+		    <!-- tab 1 -->
+		    <div id="Feature" class="tab-pane active">		        
+				<ul style = "padding-bottom:10px; border-bottom:2px solid #aaa;background-color: white;">
+					 	<li style="border: 2px solid #aaa;padding: 20px;margin-bottom: 20px;font-size: 16px;color: #212121;font-weight: 600;letter-spacing: 1px;display: block;"><span class="fa fa-hand-o-right" style="color: #1976d2;font-weight: 600;font-size: 18px;padding-right: 10px;"></span> 
+				   You can set the minimum quantity that displays in the POS order.<span class="badge badge-danger" style="background-color: #f44336 !important;
+padding: 5px 14px;
+border-radius: 3px;
+color: #fff;
+font-size: 9px;
+text-transform: uppercase;
+font-weight: bold;
+box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);">New</span>
+
+
+</li>
+				<li style="border: 2px solid #aaa;padding: 20px;margin-bottom: 20px;font-size: 16px;color: #212121;font-weight: 600;letter-spacing: 1px;display: block;"><span class="fa fa-hand-o-right" style="color: #1976d2;font-weight: 600;font-size: 18px;padding-right: 10px;"></span> 
+				   You can show the selected location qty in POS fronted.<span class="badge badge-danger" style="background-color: #f44336 !important;
+padding: 5px 14px;
+border-radius: 3px;
+color: #fff;
+font-size: 9px;
+text-transform: uppercase;
+font-weight: bold;
+box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);">New</span>
+
+
+</li>
+<li style="border: 2px solid #aaa;padding: 20px;margin-bottom: 20px;font-size: 16px;color: #212121;font-weight: 600;letter-spacing: 1px;display: block;"><span class="fa fa-hand-o-right" style="color: #1976d2;font-weight: 600;font-size: 18px;padding-right: 10px;"></span> 
+				   It generates a warning popup if you order more than the minimum quantity.<span class="badge badge-danger" style="background-color: #f44336 !important;
+padding: 5px 14px;
+border-radius: 3px;
+color: #fff;
+font-size: 9px;
+text-transform: uppercase;
+font-weight: bold;
+box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);">New</span>
+
+
+</li>
+<li style="border: 2px solid #aaa;padding: 20px;margin-bottom: 20px;font-size: 16px;color: #212121;font-weight: 600;letter-spacing: 1px;display: block;"><span class="fa fa-hand-o-right" style="color: #1976d2;font-weight: 600;font-size: 18px;padding-right: 10px;"></span> 
+				   You can order quantity from the warning popup.<span class="badge badge-danger" style="background-color: #f44336 !important;
+padding: 5px 14px;
+border-radius: 3px;
+color: #fff;
+font-size: 9px;
+text-transform: uppercase;
+font-weight: bold;
+box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);">New</span>
+
+
+</li>
+					 <li style="border: 2px solid #aaa;padding: 20px;margin-bottom: 20px;font-size: 16px;color: #212121;font-weight: 600;letter-spacing: 1px;display: block;"><span class="fa fa-hand-o-right" style="color: #1976d2;font-weight: 600;font-size: 18px;padding-right: 10px;"></span> 
+				   We provide real-time quantity update. <span class="badge badge-danger" style="background-color: #f44336 !important;
+padding: 5px 14px;
+border-radius: 3px;
+color: #fff;
+font-size: 9px;
+text-transform: uppercase;
+font-weight: bold;
+box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);">New</span>
+
+
+</li>
+					
+					 <li style="border: 2px solid #aaa;padding: 20px;margin-bottom: 20px;font-size: 16px;color: #212121;font-weight: 600;letter-spacing: 1px;display: block;"><span class="fa fa-hand-o-right" style="color: #1976d2;font-weight: 600;font-size: 18px;padding-right: 10px;"></span> 
+				 POS offline supported. <span class="badge badge-danger" style="background-color: #f44336 !important;
+padding: 5px 14px;
+border-radius: 3px;
+color: #fff;
+font-size: 9px;
+text-transform: uppercase;
+font-weight: bold;
+box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);">New</span>
+
+
+
+					</li>
+				    <li style="border: 2px solid #aaa;padding: 20px;margin-bottom: 20px;font-size: 16px;color: #212121;font-weight: 600;letter-spacing: 1px;display: block;"><span class="fa fa-hand-o-right" style="color: #1976d2;font-weight: 600;font-size: 18px;padding-right: 10px;"></span> 
+				    You can display warehouse or location product stock in the POS products.
+
+
+					</li>	
+					<li style="border: 2px solid #aaa;padding: 20px;margin-bottom: 20px;font-size: 16px;color: #212121;font-weight: 600;letter-spacing: 1px;display: block;"><span class="fa fa-hand-o-right" style="color: #1976d2;font-weight: 600;font-size: 18px;padding-right: 10px;"></span> 
+				    	 Easy to display the available stock quantity of all products in the POS.
+
+
+					</li>	
+
+					<li style="border: 2px solid #aaa;padding: 20px;margin-bottom: 20px;font-size: 16px;color: #212121;font-weight: 600;letter-spacing: 1px;display: block;"><span class="fa fa-hand-o-right" style="color: #1976d2;font-weight: 600;font-size: 18px;padding-right: 10px;"></span> 
+				      Easy to count the total product quantity.
+
+ 
+					</li>	
+					
+					<li style="border: 2px solid #aaa;padding: 20px;margin-bottom: 20px;font-size: 16px;color: #212121;font-weight: 600;letter-spacing: 1px;display: block;"><span class="fa fa-hand-o-right" style="color: #1976d2;font-weight: 600;font-size: 18px;padding-right: 10px;"></span> 
+				    	 You can count the product quantity of each warehouse and location.
+
+  
+					</li>	
+					<li style="border: 2px solid #aaa;padding: 20px;margin-bottom: 20px;font-size: 16px;color: #212121;font-weight: 600;letter-spacing: 1px;display: block;"><span class="fa fa-hand-o-right" style="color: #1976d2;font-weight: 600;font-size: 18px;padding-right: 10px;"></span> 
+				    	  No special configuration required just install it and cheers!
+
+ 
+					</li>				   
+				    
+				    <li style="border: 2px solid #aaa;padding: 20px;margin-bottom: 20px;font-size: 16px;color: #212121;font-weight: 600;letter-spacing: 1px;display: block;"><span class="fa fa-hand-o-right" style="color: #1976d2;font-weight: 600;font-size: 18px;padding-right: 10px;"></span>
+				    	 This module saves your important time.
+
+
+				    </li>
+				   
+				    	
+					<li style="border: 2px solid #aaa;padding: 20px;margin-bottom: 20px;font-size: 16px;color: #212121;font-weight: 600;letter-spacing: 1px;display: block;"><span class="fa fa-hand-o-right" style="color: #1976d2;font-weight: 600;font-size: 18px;padding-right: 10px;"></span> 
+				    	 It reduces human efforts.
+
+ 
+					</li>				   
+				    
+				</ul>		        
+		    </div>
+		    <!-- tab 1 -->
+ <div id="Configurations1" class="container tab-pane fade">
+                  <!-- tab 1 -->
+		   		         <section id="sh_configuration">
+                 	<div class="container">
+                 	    <div class="text-center">
+
+                 	        <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;">In the point of sale tick "Display Warehouse Stock" to display warehouse product stock and choose warehouse for display stock by warehouse.
+ 
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="1.png" style="width: 100%;" />
+						   </div> <br/>
+						   <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;">Click the smart button that given to the below of products to see the stock quantity.
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="2.png" style="width: 100%;" />
+						   </div> <br/>
+
+<p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;">After pressing on the smart button, the popup box opens that shows all stock details of that product with warehouse product quantity.
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="3.png" style="width: 100%;" />
+						   </div> <br/>
+
+<p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;">You can check product stock details when your product is on the cart.
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="4.png" style="width: 100%;" />
+						   </div> <br/>
+
+<p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;">The popup box opens with all the stock details of the product.
+ 
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="5.png" style="width: 100%;" />
+						   </div> 
+
+
+						   
+
+
+						 
+                 	    </div>
+                 	</div>
+                 </section> 
+				
+
+		      </div>
+		    <!-- tab 2 -->
+		    <div id="Configurations" class="container tab-pane fade">
+                  <section id="sh_configuration">
+                 	<div class="container">
+                 	    <div class="text-center">
+
+                 	        <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;">In the point of sale tick "Display Warehouse Stock" to display warehouse product stock and choose location for display stock by location.
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="6.png" style="width: 100%;" />
+						   </div> <br/>
+						   <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;">Click the smart button that given below of products to see the stock quantity and You can check product stock details when your product is on the cart.
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="7.png" style="width: 100%;" />
+						   </div> <br/>
+						   <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;">After that, the popup box opens that shows all stock details of that product with the location.
+
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="8.png" style="width: 100%;" />
+						   </div> 
+
+						   
+
+
+						 
+                 	    </div>
+                 	</div>
+                 </section> 
+
+		      </div>
+		    <!-- tab 2 -->
+		         <div id="Configurations11" class="container tab-pane fade">
+                  <section id="sh_configuration">
+                 	<div class="container">
+                 	    <div class="text-center">
+
+                 	         <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;">You can set the minimum quantity from the configuration. Select location to quantity check and order. 
+ 
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="s0.png" style="width: 100%;" />
+						   </div> <br/>
+						   <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;">It displays the available product quantity for the selected warehouse.
+ 
+ 
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="s1.png" style="width: 100%;" />
+						   </div> <br/>
+						   <p style="color: #777;font-size: 18px;max-width: 75%;margin: auto;margin-bottom: 20px;letter-spacing: 1px;">Warning popup generates if you order more than the minimum quantity.
+
+ 
+
+</p>
+                 	        <div class="col-md-12">
+						   	   <img class="img-responsive" src="s2.png" style="width: 100%;" />
+						   </div> 
+
+
+						   
+
+
+						 
+                 	    </div>
+                 	</div>
+                 </section> 
+
+		      </div>
+
+		    <!-- tab 3 -->
+		    <div id="Release" class="tab-pane fade">
+		    	 <div class="sh_content" style="border: 2px solid #aaa;padding: 20px;margin-bottom: 20px;">
+			        <h4 style="font-size: 16px;margin: 0;color: #212121;text-decoration: none;font-weight: 600;letter-spacing: 1px;display: block;"><span class="fa fa-hand-o-right" style="color: #1976d2;font-weight: 600;font-size: 18px;padding-right: 10px;"></span> <span>Version 14.0.4</span> | <span style="color: #1976d2;">Released on : 28 January 2021</span></h4>
+			        <ul class="list-unstyled" style="list-style-type: none;font-size: 16px;padding-left: 20px;color: #555;margin: 0;padding-top: 20px;">
+			           
+    <li><span class="badge badge-info" style="background: #2196F3;
+padding: 5px 15px;
+border-radius: 3px;
+color: #fff;
+font-size: 9px;
+text-transform: uppercase;
+font-weight: bold;
+box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);">Fixed</span> Minor Bug Fixed.</li>
+			           			         
+			        </ul>	
+		        </div>
+		    	   	 <div class="sh_content" style="border: 2px solid #aaa;padding: 20px;margin-bottom: 20px;">
+			        <h4 style="font-size: 16px;margin: 0;color: #212121;text-decoration: none;font-weight: 600;letter-spacing: 1px;display: block;"><span class="fa fa-hand-o-right" style="color: #1976d2;font-weight: 600;font-size: 18px;padding-right: 10px;"></span> <span>Version 14.0.3</span> | <span style="color: #1976d2;">Released on : 11 December 2020</span></h4>
+			        <ul class="list-unstyled" style="list-style-type: none;font-size: 16px;padding-left: 20px;color: #555;margin: 0;padding-top: 20px;">
+			           <li><span class="badge badge-success" style="background-color: #43A047 !important;
+    padding: 5px 17px;
+    border-radius: 3px;
+    color: #fff;
+    font-size: 9px;
+    text-transform: uppercase;
+    font-weight: bold;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);">New</span> Order button added in warning popup for forcefully add quantity in cart.</li>
+     <li><span class="badge badge-success" style="background-color: #43A047 !important;
+    padding: 5px 17px;
+    border-radius: 3px;
+    color: #fff;
+    font-size: 9px;
+    text-transform: uppercase;
+    font-weight: bold;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);">New</span> Added option for display selected location qty in POS fronted(if product is storable).</li>
+    <li><span class="badge badge-success" style="background-color: #43A047 !important;
+    padding: 5px 17px;
+    border-radius: 3px;
+    color: #fff;
+    font-size: 9px;
+    text-transform: uppercase;
+    font-weight: bold;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);">New</span> Doesn’t allow to order more than the specified quantity in pos.config</li>
+			           			         
+			        </ul>	
+		        </div>	 
+		    	  <div class="sh_content" style="border: 2px solid #aaa;padding: 20px;margin-bottom: 20px;">
+			        <h4 style="font-size: 16px;margin: 0;color: #212121;text-decoration: none;font-weight: 600;letter-spacing: 1px;display: block;"><span class="fa fa-hand-o-right" style="color: #1976d2;font-weight: 600;font-size: 18px;padding-right: 10px;"></span> <span>Version 14.0.2</span> | <span style="color: #1976d2;">Released on : 24 November 2020</span></h4>
+			         <ul class="list-unstyled" style="list-style-type: none;font-size: 16px;padding-left: 20px;color: #555;margin: 0;padding-top: 20px;">
+			           <li><span class="badge badge-success" style="background-color: #43A047 !important;
+    padding: 5px 17px;
+    border-radius: 3px;
+    color: #fff;
+    font-size: 9px;
+    text-transform: uppercase;
+    font-weight: bold;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);">New</span>Location option added for display product stock quantity.</li>
+			           <li><span class="badge badge-success" style="background-color: #43A047 !important;
+    padding: 5px 17px;
+    border-radius: 3px;
+    color: #fff;
+    font-size: 9px;
+    text-transform: uppercase;
+    font-weight: bold;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);">New</span> Real-Time Quantity Update Added.</li>
+			           <li><span class="badge badge-success" style="background-color: #43A047 !important;
+    padding: 5px 17px;
+    border-radius: 3px;
+    color: #fff;
+    font-size: 9px;
+    text-transform: uppercase;
+    font-weight: bold;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);">New</span> POS Offline Supported.</li>				         
+			        </ul>	
+		        </div>	 
+		        
+		        <div class="sh_content" style="border: 2px solid #aaa;padding: 20px;margin-bottom: 20px;">
+			        <h4 style="font-size: 16px;margin: 0;color: #212121;text-decoration: none;font-weight: 600;letter-spacing: 1px;display: block;"><span class="fa fa-hand-o-right" style="color: #1976d2;font-weight: 600;font-size: 18px;padding-right: 10px;"></span> <span>Version 14.0.1</span> | <span style="color: #1976d2;">Released on : 10 October 2020</span></h4>
+			        <ul style="list-style-type: disc;font-size: 16px;padding-left: 20px;color: #555;margin: 0;padding-top: 20px;">
+			           <li>Initial Release.</li>			         
+			        </ul>	
+		        </div>	        
+		    </div>
+		    <!-- tab 3 -->
+
+		    <!-- tab 4 -->
+		    <div id="FAQ" class="tab-pane fade">
+		        <div class="demo">
+				    <div class="panel-group" id="accordion" role="tablist">
+				        <div class="panel panel-default" style="border: 2px solid #aaa;padding: 20px;margin-bottom: 20px;">
+				            <div class="panel-heading" role="tab" id="headingOne" style="border: 0;padding: 0;">
+				                <h4 class="panel-title" style="margin: 0;">
+				                    <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="font-size: 16px;margin: 0;color: #212121;text-decoration: none;font-weight: 600;letter-spacing: 1px;display: flex;">
+				                        <span class="fa fa-hand-o-right" style="color: #1976d2;font-weight: 600;font-size: 18px;padding-right: 10px;"></span>
+				                        Is this app compatible with Odoo Community as well as Enterprise?
+				                      <!--  <span class="fa fa-plus" style="float: right;background-color: #1976d2;width: 35px;height: 35px;text-align: center;line-height: 35px;color: #fff;border-radius: 50%;margin-top: -8px;"></span> -->
+				                    </a>
+				                </h4>
+				            </div>
+				            <div id="collapseOne1" class="panel-collapse collapse show" role="tabpanel" aria-labelledby="headingOne">
+				                <div class="panel-body" style="padding-top: 20px;">
+				                    <ul style="list-style-type: disc;font-size: 16px;padding-left: 30px;color: #555;margin: 0;">
+				                    	<li style="margin-bottom: 5px;">Yes, this app works perfectly with Odoo Enterprise as well as Community. </li>
+				                    </ul>
+				                </div>
+				            </div>
+				        </div>
+                 
+				       
+
+				        <div class="panel panel-default" style="border: 2px solid #aaa;padding: 20px;margin-bottom: 20px;">
+				            <div class="panel-heading" role="tab" id="headingThree" style="border: 0;padding: 0;">
+				                <h4 class="panel-title" style="margin: 0;">
+				                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style="font-size: 16px;margin: 0;color: #212121;text-decoration: none;font-weight: 600;letter-spacing: 1px;display: flex;">
+				                        <span class="fa fa-hand-o-right" style="color: #1976d2;font-weight: 600;font-size: 18px;padding-right: 10px;"></span>
+				                        I want some customization in this app. How can I request it?
+				                       <!-- <span class="fa fa-plus" style="float: right;background-color: #1976d2;width: 35px;height: 35px;text-align: center;line-height: 35px;color: #fff;border-radius: 50%;margin-top: -8px;"></span> -->
+				                    </a>
+				                </h4>
+				            </div>
+				            <div id="collapseThree3" class="panel-collapse collapse show" role="tabpanel" aria-labelledby="headingThree">
+				                <div class="panel-body" style="padding-top: 20px;">
+				                    <ul style="list-style-type: disc;font-size: 16px;padding-left: 30px;color: #555;margin: 0;">
+				                    	<li style="margin-bottom: 5px;">Please Contact Us at <a href='mailto:sales@softhealer.com' style="color: #007bff;font-weight: 600;text-decoration: none;">sales@softhealer.com</a>to request customization.</li>
+				                    </ul>
+				                </div>
+				            </div>
+				        </div>
+						
+						<div class="panel panel-default" style="border: 2px solid #aaa;padding: 20px;margin-bottom: 20px;">
+				            <div class="panel-heading" role="tab" id="headingThree" style="border: 0;padding: 0;">
+				                <h4 class="panel-title" style="margin: 0;">
+				                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style="font-size: 16px;margin: 0;color: #212121;text-decoration: none;font-weight: 600;letter-spacing: 1px;display: flex;">
+				                        <span class="fa fa-hand-o-right" style="color: #1976d2;font-weight: 600;font-size: 18px;padding-right: 10px;"></span>
+				                        Do i get free support and updates?
+				                       <!-- <span class="fa fa-plus" style="float: right;background-color: #1976d2;width: 35px;height: 35px;text-align: center;line-height: 35px;color: #fff;border-radius: 50%;margin-top: -8px;"></span> -->
+				                    </a>
+				                </h4>
+				            </div>
+				            <div id="collapseThree3" class="panel-collapse collapse show" role="tabpanel" aria-labelledby="headingThree">
+				                <div class="panel-body" style="padding-top: 20px;">
+				                    <ul style="list-style-type: disc;font-size: 16px;padding-left: 30px;color: #555;margin: 0;">
+				                    	<li style="margin-bottom: 5px;">Yes, we provide free upgrades as well as free support for 90 days.</li>
+				                    </ul>
+				                </div>
+				            </div>
+				        </div>						
+				    </div>
+				</div>
+		    </div>
+		    <!-- tab 4 -->
+
+		    <!-- tab 5 -->
+		    <div id="Support" class="tab-pane fade">
+		        <div class="row">
+		           <div class="col-md">
+		              <div class="sh_content" style="border: 2px solid #aaa;padding: 20px;margin-bottom: 20px;">
+		                  <h4><a href="mailto:support@softhealer.com" style="text-decoration: none;color: #212121;font-size: 18px;font-weight: 600;letter-spacing: 1px;"><span class="fa fa-envelope" style="color: #1976d2;padding-right: 10px;font-size: 20px;"></span> Please mail us for support on <b style="color: #1976D2">support@softhealer.com</b></a></h4>
+						  <!-- <ul style="padding: 0;list-style: none;">
+							<li> <span class="fa fa-hand-o-right" style="color: #1976d2;font-weight: 600;font-size: 18px;padding-right: 10px;"></span> Purchase Froof.</li>
+							<li> <span class="fa fa-hand-o-right" style="color: #1976d2;font-weight: 600;font-size: 18px;padding-right: 10px;"></span> Module Technical Name.</li>
+							<li> <span class="fa fa-hand-o-right" style="color: #1976d2;font-weight: 600;font-size: 18px;padding-right: 10px;"></span> Module Version.</li>
+							<li> <span class="fa fa-hand-o-right" style="color: #1976d2;font-weight: 600;font-size: 18px;padding-right: 10px;"></span> Video/Screenshot of issue.</li>
+							<li> <span class="fa fa-hand-o-right" style="color: #1976d2;font-weight: 600;font-size: 18px;padding-right: 10px;"></span> *Log trace if possible.  </li>
+						</ul> -->
+		              </div>
+		           </div>
+
+		           <!--<div class="col-md-6">
+		              <div class="sh_content" style="border: 2px solid #aaa;padding: 20px;margin-bottom: 20px;">
+		                  <h4><a href="https://www.softhealer.com/support/ticket/submit" target="_blank" style="text-decoration: none;color: #212121;font-size: 18px;font-weight: 600;letter-spacing: 1px;"><span class="fa fa-globe" style="color: #1976d2;padding-right: 10px;font-size: 20px;"></span> www.softhealer.com/support</a></h4>
+		                  <p style="margin: 0;font-size: 16px;letter-spacing: 0.9px;color: #777;margin-top: 20px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+		              </div>
+		           </div> -->
+		        </div>	        
+		    </div>
+		    <!-- tab 5 -->
+
+		</div>
+	</div>
+</section>
+
+
+<!--Multi Language -->
+<section id="sh_multi_language" style="margin: 50px 0;">
+<div class="container">
+<div class="sh_center text-center">
+<h4 style="font-size: 30px;font-weight: 600;color: #212121;margin-bottom: 20px;">Multi-Languages</h4>
+<hr style="width: 100px;border-width: 2px;border-color: #1976d2;" />
+
+We have added predefined some languages(English, German / Deutsch, Arabic, Spanish / Español) in module, If you want to add other language you can contact us on <a href="mailto:support@softhealer.com">support@softhealer.com</a>. We use google translator tools for multi-languages so possible translations can be not accurate. we accept suggest to make more accurate translations also on <a href="mailto:support@softhealer.com">support@softhealer.com</a>.
+<br/><br/>
+</div>
+
+<div class="row">
+<div class="col-lg-12 col-md-12 col-sm-12 col-12">
+<div class="img" style="text-align: center;">
+<img src="eng.png" title="English" alt="english" style="object-fit: cover;margin: 10px 10px;" />
+<img src="german.png" title="Germany" alt="germany" style="object-fit: cover;margin: 10px 10px;" />
+<img src="aarab.png" title="Arab" alt="arab" style="object-fit: cover;margin: 10px 10px;" />
+<img src="spanish.jpg" title="Spanish" alt="spanish" style="object-fit: cover;margin: 10px 10px;" />
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="oe_container oe_dark" style="background: #efefef00;">
+   <div class="oe_row oe_spaced">
+      <h2 class="display-3" style="color:#1578b9;text-align: center;font-size: 3.2rem;">You May <b style="font-weight: bold;font-family: " open="" sans",="" sans-serif;"=""> Also Like!</b></h2>
+      <hr style="border: 1px solid #96969a;position: relative; width: 40px;top: -10px;padding: 0px;    margin-bottom: 10px;">
+      <div class="row">
+         <div class="col-md-4" align="center"> 
+            <a href="https://www.odoo.com/apps/modules/12.0/sh_pos_profit/">
+            <img src="sh_pos_profit.jpg" alt="POS Profit in sale detail" style="width: 100%;">
+            </a>
+         </div>
+         <div class="col-md-4" align="center"> 
+            <a href="https://apps.odoo.com/apps/modules/12.0/sh_pos_product_template/">
+            <img src="sh_pos_product_template.jpg" alt="POS Order Template Product" style="width: 100%;">
+            </a>
+         </div>
+         <div class="col-md-4" align="center"> 
+            <a href="https://apps.odoo.com/apps/modules/12.0/sh_pos_access_rights/">
+            <img src="sh_pos_access_rights.png" alt="POS Access Right" style="width: 100%;">
+            </a>
+         </div>
+      </div>
+
+
+      <div class="row" style="margin-top: 1rem;">
+         <div class="col-md-4" align="center"> 
+            <a href="https://www.odoo.com/apps/modules/12.0/sh_pos_categories_merge/">
+            <img src="sh_pos_categories_merge.png" alt="POS Categories Merge" style="width: 100%;">
+            </a>
+         </div>
+         <div class="col-md-4" align="center"> 
+            <a href="https://apps.odoo.com/apps/modules/12.0/sh_pos_product_template/">
+            <img src="sh_pos_chatter.png" alt="POS Chatter" style="width: 100%;">
+            </a>
+         </div>
+         <div class="col-md-4" align="center"> 
+            <a href="https://apps.odoo.com/apps/modules/12.0/pos_quotation_load/">
+            <img src="pos_quotation_load.jpg" alt="POS Quotation Load" style="width: 100%;">
+            </a>
+         </div>
+      </div>
+
+
+      <div class="row" style="margin-top: 1rem;">
+         <div class="col-md-4" align="center"> 
+            <a href="https://www.odoo.com/apps/modules/12.0/sh_pos_counter/">
+            <img src="sh_pos_counter.png" alt="POS Counter" style="width: 100%;">
+            </a>
+         </div>
+         <div class="col-md-4" align="center"> 
+            <a href="https://apps.odoo.com/apps/modules/12.0/sh_pos_dashboard/">
+            <img src="sh_pos_dashboard.png" alt="POS Dashboard" style="width: 100%;">
+            </a>
+         </div>
+         <div class="col-md-4" align="center"> 
+            <a href="https://apps.odoo.com/apps/modules/12.0/sh_pos_close_session_report/">
+            <img src="sh_pos_close_session_report.jpg" alt="POS Close Session Report" style="width: 100%;">
+            </a>
+         </div>
+      </div>
+
+      <div class="row" style="margin-top: 1rem;">
+         <div class="col-md-4" align="center"> 
+            <a href="https://www.odoo.com/apps/modules/12.0/sh_pos_enlarge_image/">
+            <img src="sh_pos_enlarge_image.png" alt="POS Enlarge Image" style="width: 100%;">
+            </a>
+         </div>
+         <div class="col-md-4" align="center"> 
+            <a href="https://apps.odoo.com/apps/modules/12.0/sh_pos_exact_search/">
+            <img src="sh_pos_exact_search.png" alt="POS Exact Search" style="width: 100%;">
+            </a>
+         </div>
+         <div class="col-md-4" align="center"> 
+            <a href="https://apps.odoo.com/apps/modules/12.0/sh_pos_fbr_connector/">
+            <img src="sh_pos_fbr_connector.png" alt="POS FBR Connector" style="width: 100%;">
+            </a>
+         </div>
+      </div>
+
+      <div class="row" style="margin-top: 1rem;">
+         <div class="col-md-4" align="center"> 
+            <a href="https://www.odoo.com/apps/modules/12.0/sh_pos_logo/">
+            <img src="sh_pos_logo.png" alt="POS Logo" style="width: 100%;">
+            </a>
+         </div>
+         <div class="col-md-4" align="center"> 
+            <a href="https://apps.odoo.com/apps/modules/12.0/sh_pos_mobile_barcode/">
+            <img src="sh_pos_mobile_barcode.png" alt="POS Mobile Barcode" style="width: 100%;">
+            </a>
+         </div>
+         <div class="col-md-4" align="center"> 
+            <a href="https://apps.odoo.com/apps/modules/12.0/sh_pos_multi_pricelist/">
+            <img src="sh_pos_multi_pricelist.png" alt="POS Multi Pricelist" style="width: 100%;">
+            </a>
+         </div>
+      </div>
+
+      <div class="row" style="margin-top: 1rem;">
+         <div class="col-md-4" align="center"> 
+            <a href="https://www.odoo.com/apps/modules/12.0/sh_pos_pl_report/">
+            <img src="sh_pos_pl_report.png" alt="POS Profit Report" style="width: 100%;">
+            </a>
+         </div>
+         <div class="col-md-4" align="center"> 
+            <a href="https://apps.odoo.com/apps/modules/12.0/sh_pos_product_bundle/">
+            <img src="sh_pos_product_bundle.png" alt="POS Product Bundle" style="width: 100%;">
+            </a>
+         </div>
+         <div class="col-md-4" align="center"> 
+            <a href="https://apps.odoo.com/apps/modules/12.0/sh_pos_product_code/">
+            <img src="sh_pos_product_code.png" alt="POS Product Code" style="width: 100%;">
+            </a>
+         </div>
+      </div>
+
+
+      <div class="row" style="margin-top: 1rem;">
+         <div class="col-md-4" align="center"> 
+            <a href="https://www.odoo.com/apps/modules/12.0/sh_pos_quick_order/">
+            <img src="sh_pos_quick_order.png" alt="POS Quick Order" style="width: 100%;">
+            </a>
+         </div>
+         <div class="col-md-4" align="center"> 
+            <a href="https://apps.odoo.com/apps/modules/12.0/sh_pos_receipt/">
+            <img src="sh_pos_receipt.png" alt="POS Receipt" style="width: 100%;">
+            </a>
+         </div>
+         <div class="col-md-4" align="center"> 
+            <a href="https://apps.odoo.com/apps/modules/12.0/sh_pos_rounding/">
+            <img src="sh_pos_rounding.png" alt="POS Rounding" style="width: 100%;">
+            </a>
+         </div>
+      </div>
+
+      <div class="row" style="margin-top: 1rem;">
+         <div class="col-md-4" align="center"> 
+            <a href="https://www.odoo.com/apps/modules/12.0/sh_pos_secondary/">
+            <img src="sh_pos_secondary.png" alt="POS Secondary" style="width: 100%;">
+            </a>
+         </div>
+         <div class="col-md-4" align="center"> 
+            <a href="https://apps.odoo.com/apps/modules/12.0/sh_pos_theme/">
+            <img src="sh_pos_theme.png" alt="POS Theme" style="width: 100%;">
+            </a>
+         </div>
+         <div class="col-md-4" align="center"> 
+            <a href="https://apps.odoo.com/apps/modules/12.0/sh_pos_whatsapp_integration/">
+            <img src="sh_pos_whatsapp_integration.png" alt="POS Whatsapp Integration" style="width: 100%;">
+            </a>
+         </div>
+      </div>
+
+
+      <div class="row" style="margin-top: 1rem;">
+         <div class="col-md-4" align="center"> 
+            <a href="https://www.odoo.com/apps/modules/12.0/pos_order_email_notification/">
+            <img src="pos_order_email_notification.jpeg" alt="POS Email Notification" style="width: 100%;">
+            </a>
+         </div>
+         <div class="col-md-4" align="center"> 
+            <a href="https://apps.odoo.com/apps/modules/12.0/pos_product_suggestion/">
+            <img src="pos_product_suggestion.jpeg" alt="POS Product Suggetion" style="width: 100%;">
+            </a>
+         </div>
+         <div class="col-md-4" align="center"> 
+            <a href="https://apps.odoo.com/apps/modules/12.0/sh_pos_direct_login/">
+            <img src="sh_pos_direct_login.jpeg" alt="POS Direct Login" style="width: 100%;">
+            </a>
+         </div>
+      </div>
+
+
+
+
+
+   </div>
+</section>
+
+
+
+</body>
+</html>
