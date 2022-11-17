@@ -12,7 +12,7 @@
         '',
     ],
     'version': '0.1',
-    'depends': ['mrp', 'point_of_sale'],
+    'depends': ['mrp', 'point_of_sale','product'],
     'data': [
         'security/ir.model.access.csv',
         'views/extra_component_views.xml',
