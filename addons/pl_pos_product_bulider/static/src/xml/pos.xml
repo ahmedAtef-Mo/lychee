@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="ProductQtyPopup" owl="1">
+        <div role="dialog" class="modal-dialog">
+            <div class="popup popup-text popup-lg product-configurator-popup" style="width: 50%; max-width: 50%;">
+                <header class="title">
+                    <t t-esc="props.title" />
+                </header>
+                <div class="main-body touch-scrollable scrollable-y">
+                    <t t-raw="props.body" />
+                </div>
+                <footer class="footer">
+                    <div class="button cancel" t-on-click="cancel">
+                        Cancel
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </t>
+
+    <t t-name="QuantityWarningPopup" owl="1">
+        <div role="dialog" class="modal-dialog">
+            <div class="popup popup-text popup-lg product-configurator-popup sh_qty_popup">
+                <header class="title">
+                    Choose the package
+                </header>
+                <div class="main-body touch-scrollable scrollable-y product_content">
+                    <t t-if="props.product">
+                        <div class="sh_product_image">
+                            <img t-att-src="props.product_image" alt="Product image" class="product_image" />
+                        </div>
+                        <div class="sh_product_name">
+                            <t t-esc="props.product.display_name" />
+                        </div>
+
+                    </t>
+                </div>
+                <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Package Name</th>
+                                    <th>Products</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <t t-esc="props.product.display_name" />
+                                    </td>
+                                    <td>
+                                        <div class="d-flex flex-row">
+                                            <div>
+                                                <img t-att-src="props.product_image" alt="Product image" class="product_image" />
+                                                <input type="number"/>
+                                            </div>
+                                            <div>
+                                                <img t-att-src="props.product_image" alt="Product image" class="product_image" />
+                                                <input type="number"/>
+                                            </div>
+                                            <div>
+                                                <img t-att-src="props.product_image" alt="Product image" class="product_image" />
+                                                <input type="number"/>
+                                            </div>
+                                            <div>
+                                                <img t-att-src="props.product_image" alt="Product image" class="product_image" />
+                                                <input type="number"/>
+                                            </div>
+                                            <div>
+                                                <img t-att-src="props.product_image" alt="Product image" class="product_image" />
+                                                <input type="number"/>
+                                            </div>
+
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+
+                        </table>
+                <footer class="footer sh_warning_footer">
+                    <div class="button cancel order" style="height: 23px; line-height: 22px; color: #fff; background: #6ec89b;" t-on-click="put_order">
+                        Order
+                    </div>
+                    <div class="button cancel" t-on-click="cancel">
+                        Cancel
+                    </div>
+                    <div class="button cancel" t-on-click="next">
+                        Next
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </t>
+
+</templates>
