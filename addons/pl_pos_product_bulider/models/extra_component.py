@@ -10,6 +10,7 @@ class ExtraComponent(models.Model):
     name = fields.Char('Package Name', required=True)
     max_qty = fields.Integer(string="Maximum Amount")
     min_qty = fields.Integer(string="Minimum Amount")
+    description = fields.Text(string='Description')
     product_ids = fields.Many2many('product.product', string="Products")
 
 

@@ -8,8 +8,8 @@ class ModelName(models.Model):
         packages = self.env['mrp.bom'].search([('product_tmpl_id', '=', self.product_tmpl_id.id)]).mapped(
             'extra_component_ids')
         result = []
-        products = []
         for rec in packages:
+            products = []
             for prod in rec.product_ids.read():
                 prod['pos_amount'] = 0
                 products.append(prod)

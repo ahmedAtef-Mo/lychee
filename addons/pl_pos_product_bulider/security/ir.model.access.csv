@@ -1,2 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_extra_component_system_user,pl_pos_product_bulider.extra_component_system_user,model_extra_component,base.group_user,1,1,1,1
+access_pos_line_extra_line_system_user,pl_pos_product_bulider.pos_line_extra_line_system_user,model_pos_line_extra_line,base.group_user,1,1,1,1
+

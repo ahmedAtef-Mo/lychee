@@ -1,21 +1,14 @@
 odoo.define("pl_pos_product_bulider.ProductQtyPopup", function (require) {
     "use strict";
 
-    var core = require('web.core');
-
-    var QWeb = core.qweb;
     const { useState, useSubEnv } = owl.hooks;
-    const PosComponent = require("point_of_sale.PosComponent");
     const AbstractAwaitablePopup = require("point_of_sale.AbstractAwaitablePopup");
     const Registries = require("point_of_sale.Registries");
-    var DB = require("point_of_sale.DB");
-    var utils = require("web.utils");
-    var round_pr = utils.round_precision;
-    var field_utils = require("web.field_utils");
     var models = require("point_of_sale.models");
     const { Gui } = require("point_of_sale.Gui");
     models.load_fields("product.product", ["qty_available", "image_1920", "type"]);
-    const OrderWidget = require('point_of_sale.OrderWidget');
+    const ProductScreen = require('point_of_sale.ProductScreen');
+
 
     var _super_orderline = models.Orderline.prototype;
     models.Orderline = models.Orderline.extend({
@@ -45,6 +38,9 @@ odoo.define("pl_pos_product_bulider.ProductQtyPopup", function (require) {
                     this.packages = result
                     this.render()
                 }
+                else {
+                    this.trigger('close-popup');
+                }
             })
         }
         get getPackages () {
@@ -55,7 +51,6 @@ odoo.define("pl_pos_product_bulider.ProductQtyPopup", function (require) {
             var selectedOrder = self.env.pos.get_order();
             var selectedOrderLine = selectedOrder.get_selected_orderline();
             self.product["is_added"] = true;
-//            selectedOrderLine.price_extra = 30;
             selectedOrder.get_selected_orderline().set_quantity('remove');
             this.props.resolve({ confirmed: false, payload: null });
             this.trigger('close-popup');
@@ -65,17 +60,47 @@ odoo.define("pl_pos_product_bulider.ProductQtyPopup", function (require) {
         }
         put_order() {
             var self = this;
+            var current_packages = this.packages;
             var selectedOrder = self.env.pos.get_order();
             var selectedOrderLine = selectedOrder.get_selected_orderline();
+            var product_lines = []
+//            console.log(this)
             self.product["is_added"] = true;
-            selectedOrderLine.price += 30;
+            for(var i = 0;i<current_packages.length;i++){
+                for(var j = 0;j<current_packages[i].products.length;j++){
+                    if (parseInt(current_packages[i].products[j].pos_amount) > 0){
+//                        console.log('current_packages[i].products[j]', current_packages[i].products[j])
+//                        product_options = self.env.pos._getAddProductOptions(current_packages[i].products[j]);
+//                        console.log('product_options', self.env.pos)
+                        product_lines.push({
+                                'product_id': current_packages[i].products[j].id,
+                                'quantity': current_packages[i].products[j].pos_amount,
+                                'price_unit': 0,
+                                'price_subtotal': 0,
+                                'price_subtotal_incl': 0,
+                            }
+                        )
+                    }
 
-//            selectedOrder.orderlines[1].price = 30
-
-//            var self = this;
-//            var selectedOrder = self.env.pos.get_order();
-//            self.product["is_added"] = true;
-//            selectedOrder.get_selected_orderline().set_quantity(1);
+                }
+            }
+            if(selectedOrderLine){
+                selectedOrderLine['extra_products'] = product_lines
+            }
+//            if(selectedOrder && selectedOrderLine) {
+//
+//                if(!self.env.pos['extra_products']) {
+//                   self.env.pos['extra_products'] = {}
+//                }
+//
+//                if(!self.env.pos['extra_products']['order_id'] || self.env.pos['extra_products']['order_id'] != selectedOrder.cid) {
+//                    self.env.pos['extra_products']['product_lines'] = {}
+//                    self.env.pos['extra_products']['order_id'] = selectedOrder.cid
+//                }
+//
+//                self.env.pos['extra_products']['product_lines'] = product_lines
+//            }
+            selectedOrder.get_selected_orderline().set_quantity(1);
             this.trigger("close-popup");
         }
         min_amount(event) {
@@ -96,14 +121,25 @@ odoo.define("pl_pos_product_bulider.ProductQtyPopup", function (require) {
             var parent = $(event.currentTarget).closest('tr');
             var package_id = parent.data('prod-id');
             var product_id = parent.data('pack-id');
-            console.log(package_id, product_id)
-            let input = parent.find('.amount_input')
+            var input = parent.find('.amount_input')
+            var qty = input.val()
             this.validate_new_qty(package_id, product_id, qty)
         }
         validate_new_qty(pak_id, prod_id, new_qty) {
-//            var package = this.packages.filter((pack) => pack.id == pak_id)
-//            var product = package.products.filter((product) => product.id == prod_id)
-//            console.log(product)
+//            var package = this.packages.filter((package) => package.id == pak_id)
+              var packages = []
+              var current_packages = this.packages;
+              for(var i = 0;i<current_packages.length;i++){
+                     if(current_packages[i].id == pak_id) {
+                        for(var j = 0;j<current_packages[i].products.length;j++){
+                            if (current_packages[i].products[j].id == prod_id){
+                                current_packages[i].products[j].pos_amount = new_qty;
+                            }
+
+                        }
+					}
+				}
+
         }
 
     }
