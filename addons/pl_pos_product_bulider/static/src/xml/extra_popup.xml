@@ -5,43 +5,67 @@
         <div role="dialog" class="modal-dialog">
             <div class="popup popup-text popup-lg product-configurator-popup sh_qty_popup">
                 <header class="title">
-                    Choose the package
+                    Build Your Own Salad
                 </header>
                 <main class="main-body touch-scrollable scrollable-y product_content">
                     <div class="package tabs">
-                        <t t-foreach="getPackages" t-as="package">
-                            <t t-esc="package.name"/>
-                            <t t-esc="package.description"/>
-                            <table width="100%" class="pak_prod_table">
-                                <t t-foreach="package.products" t-as="product">
+
+                        <table>
+                            <tr>
+                                <t t-foreach="getPackages" t-as="package">
+                                    <td>
+                                        <button class="tablinks" t-attf-id="tablinks-{{package.id}}"  t-on-click="show_package_category(package.id)">
+                                            <div class="package_card" >
+                                                <t t-esc="package.name"/>
+                                            </div>
+                                        </button>
+                                    </td>
+                                </t>
+                            </tr>
+                        </table>
+                        <div class="selected_package_container">
+                            <t t-foreach="getPackages" t-as="package">
+                                <div t-attf-id="package_content-{{package.id}}" style="display:none;" class="tabcontent">
+                                    <h4 class="">
+                                        <t t-esc="package.description"/>
+                                    </h4>
+                                    <table width="100%" class="pak_prod_table">
+                                    <t t-foreach="package.products" t-as="product">
                                     <tr
-                                    t-att-data-pack-id="product.id"
-                                    t-att-data-prod-id="package.id"
+                                            t-att-data-pack-id="product.id"
+                                            t-att-data-prod-id="package.id"
                                     >
                                         <td width="5%"><img style="max-width:65px;" class="img-fluid" t-att-src="get_image_url(product.id)" /></td>
-                                        <td width="5%">
-                                            <div class="text-left">
-                                                 <div class="row text-muted"><t t-esc="product.name"/></div>
-                                                <div class="row"><t t-raw="product.description" t-if="product.description"/></div>
-                                            </div>
-                                        </td>
-                                        <td width="90%" class="text-left">
-                                             <div class="col">
+                                        <td width="20%">
+                                            <div class="">
+                                                <div class="text-left"><t t-esc="product.name"/></div>
+                                                <div class="text-left">price : <t
+                                                        t-esc="product.list_price"/></div>
+                                                <div class="text-left">
                                                  <a href="#"
                                                     style="font-size: 35px;"
                                                     class="min_amount_btn"
                                                     t-on-click="min_amount"
                                                  >-
                                                  </a>
-                                                 <input style="width:40px;" type="number" min="0" t-att-max="package.max_qty" value="0" t-on-change="onchange_product_qty"  class="amount_input">1</input>
-                                                 <a href="#"  style="font-size: 35px;" class="max_amount_btn" t-on-click="max_amount">+</a>
+                                                 <input style="width:48px;" type="number"
+                                                        min="0"
+                                                        t-att-max="package.max_qty"
+                                                        t-att-value="product.pos_amount"
+                                                        t-on-change="onchange_product_qty"
+                                                        class="amount_input"></input>
+                                                 <a href="#" style="font-size: 35px;"
+                                                    class="max_amount_btn"
+                                                    t-on-click="max_amount">+</a>
                                             </div>
-                                            <div class="col">price : <t t-esc="product.price"/></div>
+                                            </div>
                                         </td>
                                     </tr>
                                 </t>
-                            </table>
-                        </t>
+                                </table>
+                                </div>
+                            </t>
+                        </div>
                     </div>
                 </main>
                 <footer class="footer sh_warning_footer">
@@ -60,4 +84,40 @@
             </div>
         </div>
     </t>
+<!--    <t t-name="SelectedPackageContainer">-->
+<!--         <t t-esc="package.description"/>-->
+<!--        <table width="100%" class="pak_prod_table">-->
+<!--                                <t t-foreach="package.products" t-as="product">-->
+<!--                                    <tr-->
+<!--                                            t-att-data-pack-id="product.id"-->
+<!--                                            t-att-data-prod-id="package.id"-->
+<!--                                    >-->
+<!--                                        <td width="5%"><img style="max-width:65px;" class="img-fluid" t-att-src="get_image_url(product.id)" /></td>-->
+<!--                                        <td width="5%">-->
+<!--                                            <div class="text-left">-->
+<!--                                                 <div class="row text-muted"><t t-esc="product.name"/></div>-->
+<!--                                                <div class="row"><t t-raw="product.description" t-if="product.description"/></div>-->
+<!--                                            </div>-->
+<!--                                        </td>-->
+<!--                                        <td width="90%" class="text-left">-->
+<!--                                             <div class="col">-->
+<!--                                                 <a href="#"-->
+<!--                                                    style="font-size: 35px;"-->
+<!--                                                    class="min_amount_btn"-->
+<!--                                                    t-on-click="min_amount"-->
+<!--                                                 >- -->
+<!--                                                 </a>-->
+<!--                                                 <input style="width:40px;" type="number" min="0"-->
+<!--                                                        t-att-max="package.max_qty" value="0"-->
+<!--                                                        t-on-change="onchange_product_qty"-->
+<!--                                                        class="amount_input">1</input>-->
+<!--                                                 <a href="#" style="font-size: 35px;" class="max_amount_btn"-->
+<!--                                                    t-on-click="max_amount">+</a>-->
+<!--                                            </div>-->
+<!--                                            <div class="col">price : <t t-esc="product.price"/></div>-->
+<!--                                        </td>-->
+<!--                                    </tr>-->
+<!--                                </t>-->
+<!--                            </table>-->
+<!--    </t>-->
 </templates>

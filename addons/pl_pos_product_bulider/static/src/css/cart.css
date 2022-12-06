@@ -113,3 +113,24 @@
     background-position-x: 95%;
     background-position-y: center;
 }
+.product-configurator-popup .title {
+     text-align: left;
+}
+.product-configurator-popup .package_card {
+    background-color: #F0EEEE;
+    padding: 1rem;
+    border: 1px solid #ffffff;
+    margin: 0rem 1rem;
+    cursor: pointer;
+    box-shadow: 0px 1px 2px rgb(0 0 0 / 28%);
+}
+.selected_package_container h4 {
+    text-align: left;
+    padding: 2rem 0rem 0rem;
+}
+.text-left {
+    text-align: left!important;
+}
+.selected_package_container td {
+    vertical-align: top;
+}

@@ -13,7 +13,7 @@ class ModelName(models.Model):
             for prod in rec.product_ids.read():
                 prod['pos_amount'] = 0
                 products.append(prod)
-            package = {'id': rec.id, 'name': rec.name, 'max_qty': rec.max_qty, 'min_qty': rec.min_qty,
+            package = {'id': rec.id, 'name': rec.name, 'description': rec.description, 'max_qty': rec.max_qty, 'min_qty': rec.min_qty,
                        'products': products}
             result.append(package)
         return result

@@ -2,7 +2,7 @@
     padding: 19px;
 }
 .pos .modal-dialog .popup.sh_qty_popup {
-    max-width: 90%;
+    max-width: 65%;
 }
 .pos .popup .footer.sh_warning_footer {
     height: 30px;
@@ -114,5 +114,5 @@
     }
 }
 table.pak_prod_table td {
-    padding: 30px 5px !important;
+    padding: 5px 3px !important;
 }
